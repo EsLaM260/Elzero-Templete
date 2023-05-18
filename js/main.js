@@ -1,3 +1,12 @@
+// loading
+let loading = document.querySelector(".loading");
+
+window.onload = function () {
+    setTimeout(() => {
+        loading.classList.add("hide");
+    }, 2000)
+};
+
 // header
 let showMegaMenu = document.querySelector("header .main-nav > li:last-child a");
 let MegaMenu = document.querySelector("header .main-nav > li > .mega-menu");
@@ -51,6 +60,10 @@ let spansOfSkillsSection = document.querySelectorAll(".our-skills .the-progress 
 let sectionStats = document.querySelector(".stats");
 let spansOfStats = document.querySelectorAll(".stats span.number");
 let started = false
+
+// scroll to top
+let fixed = document.querySelector(".fixed");
+
 window.onscroll = function () {
 
     if (window.scrollY >= sectionSkills.offsetTop - 50) {
@@ -68,6 +81,13 @@ window.onscroll = function () {
         }
 
     }
+
+    if (this.scrollY >= 1000) {
+        fixed.classList.add("show");
+    } else {
+        fixed.classList.remove("show");
+    }
+
 }
 function startCount(el) {
     let goal = el.dataset.goal;
@@ -79,17 +99,6 @@ function startCount(el) {
     } , 2000 / goal)
 }
 
-// scroll to top
-
-let fixed = document.querySelector(".fixed");
-
-window.onscroll = function () {
-    if (this.scrollY >= 1000) {
-        fixed.classList.add("show");
-    } else {
-        fixed.classList.remove("show");
-    }
-};
 fixed.onclick = function () {
     window.scrollTo({
         top: 0,
@@ -97,11 +106,3 @@ fixed.onclick = function () {
     });
 };
 
-// loading
-let loading = document.querySelector(".loading");
-
-window.onload = function () {
-    setTimeout(()=>{
-        loading.classList.add("hide");
-    },2000)
-}

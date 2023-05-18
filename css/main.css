@@ -146,8 +146,12 @@ a:hover {
 /* Start js class */
 .show-mega-menu {
   opacity: 1 !important;
-  top: 100% !important;
+  top: 50px !important;
   z-index: 100 !important;
+  visibility: visible !important;
+}
+.fixed.show{
+  bottom: 20px;
 }
 /* End js class */
 /* Start fixed */
@@ -166,9 +170,6 @@ a:hover {
   cursor: pointer;
   z-index: 100;
   transition: var(--main-trainsition);
-}
-.fixed.show{
-  bottom: 20px;
 }
 /* End fixed */
 /* Start loading */
@@ -358,6 +359,7 @@ header .main-nav > li > a:hover::before {
   }
 }
 /* Start Megamenu */
+
 header .mega-menu {
   position: absolute;
   width: 100%;
@@ -365,12 +367,14 @@ header .mega-menu {
   padding: 30px;
   background-color: white;
   border-bottom: 3px solid var(--main-color);
-  z-index: -1;
+  z-index: -1000;
   display: flex;
   gap: 40px;
   top: calc(100% + 50px);
   transition: top var(--main-trainsition), opacity var(--main-trainsition);
   opacity: 0;
+  /* من غيرها اللينكات بتبقي مخفيه لكن تقدر تدوس عليها */
+  visibility: hidden;
 }
 header .mega-menu .links {
   min-width: 250px;
